@@ -124,3 +124,14 @@ Change any value in `config.py` and re-run.
 | `analysis.py` | Recall vs depth, one-knob sweep, failure gallery |
 | `run.py` | One command for everything |
 | `tests/test_core.py` | Unit tests |
+
+## Things to try
+Each is a one-line change followed by `python run.py` (~15 s on an Apple-GPU Mac). The expected outcomes are hypotheses to check, not results.
+ 
+| Change | Where | Expected outcome |
+|---|---|---|
+| `target_remanence` 0.3 → 0.0 (purely induced) | `config.py` | Matched filter and GBM improve most: the template now matches every target |
+| `line_spacing_m` 2 → 1 m (denser survey) | `config.py` | Recall improves for deep targets: less smearing between lines. Better survey design vs a better model |
+| `boulder_moment` back to (0.3, 2.5) | `config.py` | Boulders become stronger than targets; amplitude-based scores get more false alarms |
+| Focal loss → plain BCE (`F.binary_cross_entropy_with_logits`) | `cnn.py` | Lower AP: the ~10,000 easy background pixels dominate and scores shrink towards 0 |
+| Matching radius 1 m → 2 m | `evaluate.py` | Every method's recall rises; the GBM most (its candidate ceiling rises from 64% to ~79%) |
