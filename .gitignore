@@ -1,0 +1,7 @@
+# Venv files and system files
+.DS_Store
+/mag_env
+# Python execution files and pytest files
+*.pyc
+/.pytest_cache
+*.png
