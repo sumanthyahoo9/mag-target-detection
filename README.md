@@ -98,8 +98,11 @@ Splits are independently generated (train 2000 / val 300 / test 500 patches; HAR
 5. Use survey geometry explicitly (along-line sampling, sensor altitude) rather than interpolated grids.
 
 ## Running it
+Tested with **Python 3.11.11** (needs 3.10+ for `X | None` type hints).
 ```bash
-python -m venv .venv && source .venv/bin/activate
+git clone https://github.com/sumanthyahoo9/mag-target-detection.git
+cd mag-target-detection
+python -m venv .venv && source .venv/bin/activate # From the repository root
 pip install -r requirements.txt
 python plots.py          # data figures -> outputs/1-4_*.png
 python run.py            # all methods + analysis (~10 min on CPU, faster on Apple GPU)
