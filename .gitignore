@@ -4,4 +4,3 @@
 # Python execution files and pytest files
 *.pyc
 /.pytest_cache
-*.png
